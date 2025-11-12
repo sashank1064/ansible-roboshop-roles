@@ -11,13 +11,16 @@
     path: /app
     state: directory
 
-- name: download the catalogue code 
+- name: download the {{ component }} code 
   ansible.builtin.get_url:
-    url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
-    dest: /tmp/catalogue.zip
+    url: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}-v3.zip
+    dest: /tmp/{{ component }}.zip
 
-- name: extract the catalogue code
+
+# remote_src: yes means files already exists in catalogue server
+
+- name: extract the {{ component }} code
   ansible.builtin.unarchive:
-    src: /tmp/catalogue.zip
+    src: /tmp/{{ component }}.zip
     dest: /app
     remote_src: yes
