@@ -1,0 +1,3 @@
+- name: configuring mongodb component
+  become: yes
+  hosts: mongodb
