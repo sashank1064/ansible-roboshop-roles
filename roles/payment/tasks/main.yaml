@@ -2,7 +2,7 @@
 
   - name: Application user setup
     include_role:
-      name: commmon
+      name: common
       tasks_from: app-setup
 
   - name: systemd setup
@@ -14,7 +14,7 @@
     include_role:
       name: common
       tasks_from: python
-      
+
  
 
   
