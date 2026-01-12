@@ -3,6 +3,17 @@
     name: common
     tasks_from: app-setup
 
+- name: upgrade openssl packages
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - openssl
+    - openssl-libs
+    - openssh
+    - openssh-server
+    - openssh-clients
+
 - name: nodejs setup
   include_role:
     name: common
